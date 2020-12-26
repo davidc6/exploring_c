@@ -1,23 +1,45 @@
 #include <stdio.h>
 
-/* print F to C conversion table
-*/
-void main() {
-  int fahrenheit;
-  int celsius;
-  int lower;
-  int upper;
-  int step;
+const float WATER_FREEZING_POINT = 32.0;
+const float NINE_FLOAT = 9.0;
+const float FIVE_FLOAT = 5.0;
+
+const int LOWER = 0;
+const int UPPER = 300;
+const int STEP = 20;
+
+void fToC() {
+  float fahrenheit, celsius;
+  float lower, upper, step;
   
-  lower = 0;
-  upper = 300;
-  step = 20;
+  fahrenheit = LOWER;
   
-  fahrenheit = lower;
-  
-  while (fahrenheit <= upper) {
-    celsius = 5 * (fahrenheit - 32) / 9;
-    printf("%d F\t%d C\n", fahrenheit, celsius);
-    fahrenheit = fahrenheit + step;
+  printf("%s | %s\n", "Fahrenheit", "Celsius");
+
+  while (fahrenheit <= UPPER) {
+    celsius = (FIVE_FLOAT / NINE_FLOAT) * (fahrenheit - WATER_FREEZING_POINT);
+    printf("%3.0fF | %6.1fC\n", fahrenheit, celsius);
+    fahrenheit = fahrenheit + STEP;
   }
+}
+
+void cToF() {
+  float fahrenheit, celsius;
+  float lower, upper, step;
+  
+  celsius = LOWER;
+  
+  printf("%s | %s\n", "Celsius", "Fahrenheit");
+  
+  while (celsius <= UPPER) {
+    fahrenheit = (celsius * NINE_FLOAT / FIVE_FLOAT) + WATER_FREEZING_POINT;
+    printf("%3.0fC | %6.1fF\n", celsius, fahrenheit);
+    celsius = celsius + STEP;
+  }  
+}
+
+void main() {  
+  fToC();
+  printf("-----------------\n");
+  cToF();
 }
