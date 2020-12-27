@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 const float WATER_FREEZING_POINT = 32.0;
 const float NINE_FLOAT = 9.0;
@@ -8,7 +9,7 @@ const int LOWER = 0;
 const int UPPER = 300;
 const int STEP = 20;
 
-void fToC() {
+int fToC() {
   float fahrenheit, celsius;
   float lower, upper, step;
   
@@ -21,9 +22,11 @@ void fToC() {
     printf("%3.0fF | %6.1fC\n", fahrenheit, celsius);
     fahrenheit = fahrenheit + STEP;
   }
+
+  return EXIT_SUCCESS;
 }
 
-void cToF() {
+int cToF() {
   float fahrenheit, celsius;
   float lower, upper, step;
   
@@ -35,10 +38,12 @@ void cToF() {
     fahrenheit = (celsius * NINE_FLOAT / FIVE_FLOAT) + WATER_FREEZING_POINT;
     printf("%3.0fC | %6.1fF\n", celsius, fahrenheit);
     celsius = celsius + STEP;
-  }  
+  }
+
+  return EXIT_SUCCESS;
 }
 
-void main() {  
+int main(void) {  
   fToC();
   printf("-----------------\n");
   cToF();
